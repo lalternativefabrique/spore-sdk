@@ -1,0 +1,15 @@
+node_modules/
+.pnpm-store/
+dist/
+*.tsbuildinfo
+.DS_Store
+/sdk-php/composer.lock
+/sdk-php/.phpunit.cache/
+/sdk-ruby/Gemfile.lock
+/sdk-ruby/.rspec_status
+/sdk-python/.mypy_cache/
+/sdk-python/.nox/
+/sdk-python/.pyright/
+/sdk-python/.ruff_cache/
+/sdk-rust/target/
+.sklp/cache/

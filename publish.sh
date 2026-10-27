@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 # Publish one Spore SDK from a clean main.
 #
-# Usage: ./spore/publish.sh python   (needs UV_PUBLISH_TOKEN, a PyPI API token)
-#        ./spore/publish.sh php      (needs push access to SPORE_PHP_REMOTE)
+# Usage: ./publish.sh python   (needs UV_PUBLISH_TOKEN, a PyPI API token)
+#        ./publish.sh php      (needs push access to SPORE_PHP_REMOTE)
 #
-# The Node SDK publishes with `npm publish` from spore/sdk-node.
+# The Node SDK publishes with `npm publish` from sdk-node.
 set -eu
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
 if [ "$(git rev-parse --abbrev-ref HEAD)" != main ]; then
@@ -22,20 +22,20 @@ fi
 case "${1:-}" in
 python)
 	: "${UV_PUBLISH_TOKEN:?set UV_PUBLISH_TOKEN to a PyPI API token scoped to spore-email}"
-	VERSION="$(sed -n 's/^version = "\(.*\)"$/\1/p' spore/sdk-python/pyproject.toml)"
+	VERSION="$(sed -n 's/^version = "\(.*\)"$/\1/p' sdk-python/pyproject.toml)"
 	if curl -fsS -o /dev/null "https://pypi.org/pypi/spore-email/$VERSION/json"; then
 		echo "spore-email $VERSION is already on PyPI" >&2
 		exit 1
 	fi
 	OUT="$(mktemp -d)"
 	trap 'rm -rf "$OUT"' EXIT
-	uv build spore/sdk-python --out-dir "$OUT"
+	uv build sdk-python --out-dir "$OUT"
 	uv publish "$OUT"/*
 	;;
 php)
 	REMOTE="${SPORE_PHP_REMOTE:-git@github.com:lalternativefabrique/spore-php.git}"
-	VERSION="$(sed -n 's/^ *"version": "\(.*\)",$/\1/p' spore/sdk-php/composer.json)"
-	SPLIT="$(git subtree split --prefix=spore/sdk-php HEAD)"
+	VERSION="$(sed -n 's/^ *"version": "\(.*\)",$/\1/p' sdk-php/composer.json)"
+	SPLIT="$(git subtree split --prefix=sdk-php HEAD)"
 	git push "$REMOTE" "$SPLIT:refs/heads/main"
 	git push "$REMOTE" "$SPLIT:refs/tags/v$VERSION"
 	;;

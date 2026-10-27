@@ -4,7 +4,7 @@
   "composerPackageName": "lalternative/spore",
   "artifactVersion": "0.2.0",
   "artifactUrl": "https://sporee.fr/docs/sdks/php",
-  "licenseName": "proprietary",
+  "licenseName": "MIT",
   "developerOrganization": "Spore",
   "developerOrganizationUrl": "https://sporee.fr",
   "hideGenerationTimestamp": true

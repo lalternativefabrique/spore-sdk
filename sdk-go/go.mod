@@ -1,3 +1,3 @@
-module github.com/lalternative/packages/spore/sdk-go
+module github.com/lalternativefabrique/spore-sdk/sdk-go
 
 go 1.25.0

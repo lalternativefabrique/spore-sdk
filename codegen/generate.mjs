@@ -1,11 +1,16 @@
 import { execFileSync } from 'node:child_process'
-import { existsSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const codegen = dirname(fileURLToPath(import.meta.url))
 const spore = resolve(codegen, '..')
-const spec = resolve(spore, 'openapi.json')
+const contract = JSON.parse(readFileSync(resolve(spore, 'openapi.json'), 'utf8'))
+// The contract's license is the API's; the generated clients are MIT.
+contract.info.license = { name: 'MIT', identifier: 'MIT' }
+const spec = join(mkdtempSync(join(tmpdir(), 'spore-codegen-')), 'openapi.json')
+writeFileSync(spec, JSON.stringify(contract))
 const cli = resolve(codegen, 'node_modules/.bin/openapi-generator-cli')
 
 const clients = [
@@ -102,7 +107,7 @@ for (const [name, generator] of clients) {
     'apiDocs=false,modelDocs=false,apiTests=false,modelTests=false',
   ]
   if (name !== 'php') {
-    args.push('--git-user-id', 'lalternativefabrique', '--git-repo-id', 'packages')
+    args.push('--git-user-id', 'lalternativefabrique', '--git-repo-id', 'spore-sdk')
   }
   execFileSync(cli, args, { cwd: codegen, stdio: 'inherit' })
   for (const relativePath of generatedScaffolding[name]) {

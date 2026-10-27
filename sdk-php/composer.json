@@ -12,7 +12,7 @@
         "api"
     ],
     "homepage": "https://sporee.fr/docs/sdks/php",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Spore",

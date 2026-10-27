@@ -23,8 +23,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lalternativefabrique/packages.git",
-    "directory": "spore/sdk-node"
+    "url": "https://github.com/lalternativefabrique/spore-sdk.git",
+    "directory": "sdk-node"
   },
   "scripts": {
     "generate": "orval --config orval.config.ts",
@@ -39,5 +39,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "license": "MIT"
 }

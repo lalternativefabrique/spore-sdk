@@ -35,12 +35,12 @@ setup(
     description="Spore API",
     author="Spore",
     author_email="contact@sporee.fr",
-    url="https://github.com/lalternativefabrique/packages/tree/main/spore/sdk-python",
+    url="https://github.com/lalternativefabrique/spore-sdk/tree/main/sdk-python",
     keywords=["OpenAPI", "OpenAPI-Generator", "Spore API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="Proprietary",
+    license="MIT",
     long_description_content_type='text/markdown',
     long_description="""\
     Control plane for the Spore transactional email platform.

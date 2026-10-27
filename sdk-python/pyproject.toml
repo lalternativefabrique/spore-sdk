@@ -5,7 +5,7 @@ description = "Spore API"
 authors = [
   {name = "Spore",email = "contact@sporee.fr"},
 ]
-license = { text = "Proprietary" }
+license = { text = "MIT" }
 readme = "README.md"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Spore API"]
 requires-python = ">=3.9"

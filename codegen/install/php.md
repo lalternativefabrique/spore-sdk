@@ -8,7 +8,7 @@ composer require lalternative/spore
 
 Until `lalternative/spore` is on Packagist, declare it from the monorepo in
 `composer.json` (Composer reads `composer.json` only at a repository root, so a
-plain `vcs` repository cannot point at `spore/sdk-php`):
+plain `vcs` repository cannot point at `sdk-php`):
 
 ```json
 {
@@ -20,7 +20,7 @@ plain `vcs` repository cannot point at `spore/sdk-php`):
         "version": "dev-main",
         "source": {
           "type": "git",
-          "url": "https://github.com/lalternativefabrique/packages.git",
+          "url": "https://github.com/lalternativefabrique/spore-sdk.git",
           "reference": "main"
         },
         "require": {
@@ -32,7 +32,7 @@ plain `vcs` repository cannot point at `spore/sdk-php`):
           "guzzlehttp/psr7": "^1.7 || ^2.0 || ^3.0"
         },
         "autoload": {
-          "psr-4": { "Lalternative\\Spore\\": "spore/sdk-php/lib/" }
+          "psr-4": { "Lalternative\\Spore\\": "sdk-php/lib/" }
         }
       }
     }

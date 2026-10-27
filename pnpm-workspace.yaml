@@ -1,0 +1,7 @@
+packages:
+  - codegen
+  - sdk-node
+allowBuilds:
+  "@openapitools/openapi-generator-cli": true
+  "@scarf/scarf": false
+  esbuild: true

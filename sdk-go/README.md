@@ -3,26 +3,19 @@
 Minimal Go client for the [Spore](https://sporee.fr) transactional email API.
 
 The TypeScript, Python, PHP, Ruby and Rust SDKs live next to this module under
-`spore/sdk-*`. This Go client remains intentionally small and hand-written
+`sdk-*`. This Go client remains intentionally small and hand-written
 (stdlib only), so any Go service can use it without inheriting heavy dependencies.
 
 ## Install
 
 ```sh
-go get github.com/lalternative/packages/spore/sdk-go@latest
-```
-
-The repository is private, so consumers need:
-
-```sh
-export GOPRIVATE=github.com/lalternative/*
-# and a working git credential helper for github.com
+go get github.com/lalternativefabrique/spore-sdk/sdk-go@latest
 ```
 
 ## Usage
 
 ```go
-import spore "github.com/lalternative/packages/spore/sdk-go"
+import spore "github.com/lalternativefabrique/spore-sdk/sdk-go"
 
 client := spore.NewClient(os.Getenv("SPORE_API_KEY"))
 
@@ -65,8 +58,8 @@ mirrors the OpenAPI spec in the Spore monorepo at `apps/core/docs/swagger.yaml`.
 Tag the module path explicitly:
 
 ```sh
-git tag spore/sdk-go/v0.1.0
-git push origin spore/sdk-go/v0.1.0
+git tag sdk-go/v0.1.0
+git push origin sdk-go/v0.1.0
 ```
 
-Consumers then pin with `go get github.com/lalternative/packages/spore/sdk-go@v0.1.0`.
+Consumers then pin with `go get github.com/lalternativefabrique/spore-sdk/sdk-go@v0.1.0`.

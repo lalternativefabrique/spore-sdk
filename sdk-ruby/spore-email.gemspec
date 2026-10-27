@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://sporee.fr/docs/sdks/ruby"
   s.summary     = "Typed Ruby client for the Spore transactional email API"
   s.description = "Send DKIM-signed transactional email through Spore from Ruby and Rails."
-  s.license     = "Nonstandard"
+  s.license     = "MIT"
   s.required_ruby_version = ">= 2.7"
   s.metadata    = {}
 

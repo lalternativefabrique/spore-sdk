@@ -1,0 +1,10 @@
+runner:
+  toolchain:
+    go: "1.25.12"
+  packages:
+    - git
+    - ca-certificates
+    - build-essential
+    - php-cli
+    - python3
+    - ruby
