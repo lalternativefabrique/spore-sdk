@@ -35,7 +35,7 @@ type Client struct {
 
 type Option func(*Client)
 
-func WithBaseURL(u string) Option        { return func(c *Client) { c.baseURL = u } }
+func WithBaseURL(u string) Option          { return func(c *Client) { c.baseURL = u } }
 func WithHTTPClient(h *http.Client) Option { return func(c *Client) { c.httpClient = h } }
 
 func NewClient(apiKey string, opts ...Option) *Client {
@@ -61,6 +61,7 @@ type SendEmailRequest struct {
 	IdentityID  string             `json:"identityId,omitempty"`
 	From        string             `json:"from"`
 	To          []string           `json:"to"`
+	ReplyTo     string             `json:"replyTo,omitempty"`
 	Subject     string             `json:"subject"`
 	HTML        string             `json:"html,omitempty"`
 	Text        string             `json:"text,omitempty"`
